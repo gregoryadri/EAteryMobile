@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
-public class show_order extends AppCompatActivity {
+public class ShowOrder extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -5,16 +5,22 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
-public class menu extends AppCompatActivity
-        implements View.OnClickListener {
+import java.util.List;
+
+public class Menu extends AppCompatActivity
+        implements View.OnClickListener, AdapterView.OnItemClickListener {
 
     //variable
+    String[] orderMakanan, orderHarga;
+    int orderPosition = 0;
+
     Button cekOrder, pembayaran;
 
-    ListView list_nama, list_harga;
+    ListView list_menu;
 
     String[] nama_makanan = {"Nasi Goreng", "Mie Goreng", "Es Teh Manis", "Teh Manis Hangat"};
     String[] harga_makanan = {"10.000", "10.000", "6.000", "5.000"};
@@ -30,25 +36,39 @@ public class menu extends AppCompatActivity
         cekOrder = (Button)findViewById(R.id.check_order);
         pembayaran = (Button)findViewById(R.id.checkout);
 
-        list_nama = (ListView)findViewById(R.id.listView3);
-        list_harga = (ListView)findViewById(R.id.listView4);
+        list_menu = (ListView)findViewById(R.id.listMenu);
 
-        customAdapter adapterNama = new customAdapter(this,nama_makanan);
-        customAdapter adapterHarga = new customAdapter(this,harga_makanan);
+        ItemMenuAdapter adapterMenu = new ItemMenuAdapter(this,nama_makanan, harga_makanan);
 
-        list_nama.setAdapter(adapterNama);
-        list_harga.setAdapter(adapterHarga);
+        list_menu.setAdapter(adapterMenu);
 
         cekOrder.setOnClickListener(this);
         pembayaran.setOnClickListener(this);
+
+        list_menu.setOnItemClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         if(v == cekOrder){
-            startActivity(new Intent(getApplicationContext(),show_order.class));
+            Intent i = new Intent(getApplicationContext(),ShowOrder.class);
+            for(int a = 0; a < orderPosition; a++){
+                i.putExtra("NamaMakanan",orderMakanan[a]);
+                i.putExtra("HargaMakanan",orderHarga[a]);
+            }
+            orderPosition = 0;
+
+            startActivity(i);
         } else {
+            orderPosition = 0;
             //startActivity(new Intent(getApplicationContext(),checkout.class));
         }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        orderMakanan[orderPosition] = nama_makanan[position];
+        orderHarga[orderPosition] = harga_makanan[position];
+        orderPosition++;
     }
 }

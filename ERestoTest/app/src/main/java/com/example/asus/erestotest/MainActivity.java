@@ -2,16 +2,12 @@ package com.example.asus.erestotest;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity
@@ -45,8 +41,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        // Inflate the Menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -73,11 +69,11 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
        if (id == R.id.restaurant) {
-            startActivity(new Intent(getApplicationContext(),find_restaurant.class));
+            startActivity(new Intent(getApplicationContext(),FindRestaurant.class));
         } else if (id == R.id.menu) {
-            startActivity(new Intent(getApplicationContext(),menu.class));
+            startActivity(new Intent(getApplicationContext(),Menu.class));
         } else if (id == R.id.setting) {
-            startActivity(new Intent(getApplicationContext(),setting.class));
+            startActivity(new Intent(getApplicationContext(),Setting.class));
         } else if (id == R.id.logout) {
             //startActivity(new Intent(getApplicationContext(),logout.class));
         }

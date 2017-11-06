@@ -28,5 +28,6 @@
     <string name="pelangganradio">Pelanggan</string>
     <string name="restoranradio">Restoran</string>
     <string name="pilih">Pilih</string>
+    <string name="title_activity_menu_item">menu_item</string>
 
 </resources>

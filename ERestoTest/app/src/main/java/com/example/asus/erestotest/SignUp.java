@@ -1,5 +1,6 @@
 package com.example.asus.erestotest;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,10 +16,11 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class sign_up extends AppCompatActivity {
+public class SignUp extends AppCompatActivity {
     private RadioGroup radioGroup;
     private RadioButton pelanggan, restoran;
     private TextView textView;
+    private Button registerButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +42,15 @@ public class sign_up extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Restoran telah dipilih",
                             Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        registerButton = (Button)findViewById(R.id.email_register);
+        registerButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mainIntent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(mainIntent);
             }
         });
 

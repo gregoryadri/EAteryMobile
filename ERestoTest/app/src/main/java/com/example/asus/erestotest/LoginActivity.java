@@ -3,6 +3,7 @@ package com.example.asus.erestotest;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -86,7 +87,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+                //attemptLogin();
+                Intent mainIntent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(mainIntent);
+            }
+        });
+
+        Button mSignUp = (Button) findViewById(R.id.email_register);
+        mSignUp.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mainIntent = new Intent(getApplicationContext(),SignUp.class);
+                startActivity(mainIntent);
             }
         });
 
