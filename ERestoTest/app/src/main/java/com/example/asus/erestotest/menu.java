@@ -9,7 +9,8 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Menu extends AppCompatActivity
         implements View.OnClickListener, AdapterView.OnItemClickListener {
@@ -22,8 +23,20 @@ public class Menu extends AppCompatActivity
 
     ListView list_menu;
 
+    String[] hanyaAkal;
+
     String[] nama_makanan = {"Nasi Goreng", "Mie Goreng", "Es Teh Manis", "Teh Manis Hangat"};
     String[] harga_makanan = {"10.000", "10.000", "6.000", "5.000"};
+
+    Map<String,String> selectedOrder = new HashMap<String,String>();
+
+    Map<String,String> menuRestoranA = new HashMap<String,String>(){{
+        put("Nasi Goreng","Rp 10.000");
+        put("Mie Goreng","Rp 10.000");
+        put("Es Teh Manis","Rp 6.000");
+        put("Teh Manis Hangat","Rp 5.000");
+    }};
+
 
 
     @Override
@@ -38,7 +51,7 @@ public class Menu extends AppCompatActivity
 
         list_menu = (ListView)findViewById(R.id.listMenu);
 
-        ItemMenuAdapter adapterMenu = new ItemMenuAdapter(this,nama_makanan, harga_makanan);
+        ItemMenuAdapter adapterMenu = new ItemMenuAdapter(this,nama_makanan,harga_makanan);
 
         list_menu.setAdapter(adapterMenu);
 
@@ -67,6 +80,7 @@ public class Menu extends AppCompatActivity
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
         orderMakanan[orderPosition] = nama_makanan[position];
         orderHarga[orderPosition] = harga_makanan[position];
         orderPosition++;

@@ -7,19 +7,23 @@ import android.widget.ArrayAdapter;
 import android.app.Activity;
 import android.widget.TextView;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by Asus on 10/22/2017.
  */
 public class ItemMenuAdapter extends ArrayAdapter<String> {
 
-    String[] namaMenu,hargaMenu;
+    Map<String,String> mapMenu;
     Activity activity;
+    String[] namaMakanan, hargaMakanan;
 
-    public ItemMenuAdapter(Menu menu, String[] namaMenu, String[] hargaMenu){
-        super(menu,R.layout.activity_menu_item,namaMenu);
-        this.namaMenu = namaMenu;
-        this.hargaMenu = hargaMenu;
+    public ItemMenuAdapter(Menu menu, String[] namaMakanan, String[] hargaMakanan){
+        super(menu,R.layout.activity_menu_item, namaMakanan);
         this.activity = menu;
+        this.namaMakanan = namaMakanan;
+        this.hargaMakanan = hargaMakanan;
     }
 
     @Override
@@ -30,8 +34,9 @@ public class ItemMenuAdapter extends ArrayAdapter<String> {
         TextView textNamaMenu = (TextView)v.findViewById(R.id.namaMenuShow);
         TextView textHargaMenu = (TextView)v.findViewById(R.id.hargaMenuShow);
 
-        textNamaMenu.setText(namaMenu[position]);
-        textHargaMenu.setText("Rp." + hargaMenu[position]);
+        textNamaMenu.setText(namaMakanan[position]);
+        textHargaMenu.setText(hargaMakanan[position]);
+
 
         return v;
     }

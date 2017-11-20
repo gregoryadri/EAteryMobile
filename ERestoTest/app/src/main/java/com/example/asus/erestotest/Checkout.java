@@ -27,7 +27,7 @@ public class Checkout extends AppCompatActivity implements View.OnClickListener 
 
     public void onClick(View v) {
         if (v == kembali) {
-            startActivity(new Intent(getApplicationContext(), menu.class));
+            startActivity(new Intent(getApplicationContext(), Menu.class));
         }
     }
 }

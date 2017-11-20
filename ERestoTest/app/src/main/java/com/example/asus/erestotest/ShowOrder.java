@@ -100,4 +100,10 @@ public class ShowOrder extends AppCompatActivity
             //startActivity(new Intent(getApplicationContext(),checkout.class));
         }
     }
+
+    /**
+     * Created by Asus on 11/20/2017.
+     */
+    public static class FindRestaurantAdapter {
+    }
 }

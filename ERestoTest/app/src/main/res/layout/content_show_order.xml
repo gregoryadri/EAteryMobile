@@ -27,19 +27,13 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="275dp">
+            android:layout_height="275dp"
+            android:weightSum="1">
 
             <ListView
-                android:layout_width="168dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/list_makanan"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp" />
-
-            <ListView
-                android:layout_width="168dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/list_minuman"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp" />
 

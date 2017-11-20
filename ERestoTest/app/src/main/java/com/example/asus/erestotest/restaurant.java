@@ -2,6 +2,7 @@ package com.example.asus.erestotest;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -42,5 +43,14 @@ public class restaurant extends FragmentActivity implements OnMapReadyCallback {
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    }
+
+    public static class main_item extends AppCompatActivity {
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main_item);
+        }
     }
 }
