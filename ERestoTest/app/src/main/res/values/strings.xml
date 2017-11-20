@@ -29,5 +29,6 @@
     <string name="restoranradio">Restoran</string>
     <string name="pilih">Pilih</string>
     <string name="title_activity_menu_item">menu_item</string>
+    <string name="title_activity_restaurant">Map</string>
 
 </resources>
