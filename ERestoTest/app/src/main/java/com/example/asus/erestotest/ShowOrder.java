@@ -17,7 +17,11 @@ import android.widget.ListView;
 public class ShowOrder extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
     Button pembayaran, kembali;
-    ListView list_makanan, list_minuman;
+    ListView list_menu;
+    String[] nama_makanan = {"Nasi Goreng", "Mie Goreng", "Es Teh Manis", "Teh Manis Hangat"};
+    String[] harga_makanan = {"10.000", "10.000", "6.000", "5.000"};
+    String[] orderMakanan, orderHarga;
+    int orderPosition = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +30,7 @@ public class ShowOrder extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        //something greg do
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -35,11 +39,11 @@ public class ShowOrder extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        //something that kus do
+        list_menu = (ListView)findViewById(R.id.listMenu);
 
+        ShowOrderAdapter adapterMenu = new ShowOrderAdapter(this,nama_makanan,harga_makanan);
         pembayaran = (Button)findViewById(R.id.checkout);
-
-        list_makanan = (ListView)findViewById(R.id.list_makanan);
-        list_minuman = (ListView)findViewById(R.id.list_minuman);
 
         kembali.setOnClickListener(this);
         pembayaran.setOnClickListener(this);

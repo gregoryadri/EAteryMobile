@@ -9,9 +9,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Menu extends AppCompatActivity
         implements View.OnClickListener, AdapterView.OnItemClickListener {
 
@@ -28,14 +25,7 @@ public class Menu extends AppCompatActivity
     String[] nama_makanan = {"Nasi Goreng", "Mie Goreng", "Es Teh Manis", "Teh Manis Hangat"};
     String[] harga_makanan = {"10.000", "10.000", "6.000", "5.000"};
 
-    Map<String,String> selectedOrder = new HashMap<String,String>();
 
-    Map<String,String> menuRestoranA = new HashMap<String,String>(){{
-        put("Nasi Goreng","Rp 10.000");
-        put("Mie Goreng","Rp 10.000");
-        put("Es Teh Manis","Rp 6.000");
-        put("Teh Manis Hangat","Rp 5.000");
-    }};
 
 
 
@@ -53,12 +43,8 @@ public class Menu extends AppCompatActivity
 
         ItemMenuAdapter adapterMenu = new ItemMenuAdapter(this,nama_makanan,harga_makanan);
 
-        list_menu.setAdapter(adapterMenu);
-
         cekOrder.setOnClickListener(this);
         pembayaran.setOnClickListener(this);
-
-        list_menu.setOnItemClickListener(this);
     }
 
     @Override
@@ -74,7 +60,7 @@ public class Menu extends AppCompatActivity
             startActivity(i);
         } else {
             orderPosition = 0;
-            //startActivity(new Intent(getApplicationContext(),checkout.class));
+            startActivity(new Intent(getApplicationContext(),Checkout.class));
         }
     }
 
